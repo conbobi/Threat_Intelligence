@@ -1,0 +1,56 @@
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #0b1a2a, #0f2a44);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.register-box, .login-box {
+    width: 420px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
+
+.login-box {
+    width: 400px;
+}
+
+.form-control {
+    background-color: #0f1e2e;
+    border: 1px solid #2c3e50;
+    color: white;
+}
+
+.form-control:focus {
+    background-color: #0f1e2e;
+    color: white;
+    border-color: #4dabf7;
+    box-shadow: none;
+}
+
+.btn-register, .btn-login {
+    background: linear-gradient(90deg, #4dabf7, #1c7ed6);
+    border: none;
+}
+
+.google-btn {
+    background: white;
+    color: black;
+}
+
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    color: #aaa;
+}
+
+a {
+    color: #74c0fc;
+    text-decoration: none;
+}

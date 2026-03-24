@@ -1,0 +1,783 @@
+2026-03-24 18:14:56,978 - DEBUG - _run_protected started
+2026-03-24 18:14:56,993 - DEBUG - Decrypted length: 39803
+2026-03-24 18:14:56,993 - DEBUG - Decrypted code snippet: # === LÀM NHI\u1ec4U CH\u1eee KÝ - MÃ HÓA CHU\u1ed6I ===
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from
+2026-03-24 18:15:04,119 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-24 18:15:04,120 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-24 18:15:04,123 - INFO -  * Restarting with stat
+2026-03-24 18:15:04,840 - DEBUG - _run_protected started
+2026-03-24 18:15:05,103 - DEBUG - Decrypted length: 39803
+2026-03-24 18:15:05,105 - DEBUG - Decrypted code snippet: # === LÀM NHI\u1ec4U CH\u1eee KÝ - MÃ HÓA CHU\u1ed6I ===
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from
+2026-03-24 18:15:09,196 - WARNING -  * Debugger is active!
+2026-03-24 18:15:09,212 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 18:21:43,678 - INFO -  * Detected change in 'C:\\tool\\Threat_Intelligence\\templates\\admin\\protect_data_admin.py', reloading
+2026-03-24 18:21:44,502 - INFO -  * Restarting with stat
+2026-03-24 18:21:50,498 - DEBUG - _run_protected started
+2026-03-24 18:21:50,513 - DEBUG - Decrypted length: 40793
+2026-03-24 18:21:50,513 - DEBUG - Decrypted code snippet: # === LÀM NHI\u1ec4U CH\u1eee KÝ - MÃ HÓA CHU\u1ed6I ===
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from
+2026-03-24 18:21:55,248 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-24 18:21:55,248 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-24 18:21:55,248 - INFO -  * Restarting with stat
+2026-03-24 18:21:55,779 - DEBUG - _run_protected started
+2026-03-24 18:21:55,779 - DEBUG - Decrypted length: 40793
+2026-03-24 18:21:55,779 - DEBUG - Decrypted code snippet: # === LÀM NHI\u1ec4U CH\u1eee KÝ - MÃ HÓA CHU\u1ed6I ===
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from
+2026-03-24 18:21:57,309 - WARNING -  * Debugger is active!
+2026-03-24 18:21:57,320 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 18:28:21,410 - INFO -  * Detected change in 'C:\\tool\\Threat_Intelligence\\templates\\admin\\protect_data_admin.py', reloading
+2026-03-24 18:28:22,998 - INFO -  * Restarting with stat
+2026-03-24 18:28:23,925 - DEBUG - _run_protected started
+2026-03-24 18:28:23,925 - DEBUG - Decrypted length: 40793
+2026-03-24 18:28:23,925 - DEBUG - Decrypted code snippet: # === LÀM NHI\u1ec4U CH\u1eee KÝ - MÃ HÓA CHU\u1ed6I ===
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from
+2026-03-24 18:28:25,769 - WARNING -  * Debugger is active!
+2026-03-24 18:28:25,794 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 18:28:52,076 - INFO -  * Detected change in 'C:\\tool\\Threat_Intelligence\\templates\\admin\\protect_data_admin.py', reloading
+2026-03-24 18:28:54,227 - INFO -  * Restarting with stat
+2026-03-24 18:28:56,042 - DEBUG - _run_protected started
+2026-03-24 18:28:56,047 - DEBUG - Decrypted length: 40793
+2026-03-24 18:28:56,048 - DEBUG - Decrypted code snippet: # === LÀM NHI\u1ec4U CH\u1eee KÝ - MÃ HÓA CHU\u1ed6I ===
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from
+2026-03-24 18:28:58,940 - WARNING -  * Debugger is active!
+2026-03-24 18:28:58,979 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 18:29:25,276 - DEBUG - _run_protected started
+2026-03-24 18:29:25,292 - DEBUG - Decrypted length: 40793
+2026-03-24 18:29:25,292 - DEBUG - Decrypted code snippet: # === LÀM NHI\u1ec4U CH\u1eee KÝ - MÃ HÓA CHU\u1ed6I ===
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from
+2026-03-24 18:29:27,160 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-24 18:29:27,160 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-24 18:29:27,162 - INFO -  * Restarting with stat
+2026-03-24 18:29:27,511 - DEBUG - _run_protected started
+2026-03-24 18:29:27,526 - DEBUG - Decrypted length: 40793
+2026-03-24 18:29:27,526 - DEBUG - Decrypted code snippet: # === LÀM NHI\u1ec4U CH\u1eee KÝ - MÃ HÓA CHU\u1ed6I ===
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from
+2026-03-24 18:29:29,095 - WARNING -  * Debugger is active!
+2026-03-24 18:29:29,102 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 18:32:30,254 - INFO -  * Detected change in 'C:\\tool\\Threat_Intelligence\\templates\\admin\\protect_data_admin.py', reloading
+2026-03-24 18:32:31,092 - INFO -  * Restarting with stat
+2026-03-24 18:32:32,106 - DEBUG - _run_protected started
+2026-03-24 18:32:32,106 - DEBUG - Decrypted length: 40793
+2026-03-24 18:32:32,106 - DEBUG - Decrypted code snippet: # === LÀM NHI\u1ec4U CH\u1eee KÝ - MÃ HÓA CHU\u1ed6I ===
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from
+2026-03-24 18:32:34,758 - WARNING -  * Debugger is active!
+2026-03-24 18:32:34,786 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 18:32:43,432 - DEBUG - _run_protected started
+2026-03-24 18:32:43,460 - DEBUG - Decrypted length: 40793
+2026-03-24 18:32:43,460 - DEBUG - Decrypted code snippet: # === LÀM NHI\u1ec4U CH\u1eee KÝ - MÃ HÓA CHU\u1ed6I ===
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from
+2026-03-24 18:32:45,078 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-24 18:32:45,084 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-24 18:32:45,086 - INFO -  * Restarting with stat
+2026-03-24 18:32:45,698 - DEBUG - _run_protected started
+2026-03-24 18:32:45,702 - DEBUG - Decrypted length: 40793
+2026-03-24 18:32:45,702 - DEBUG - Decrypted code snippet: # === LÀM NHI\u1ec4U CH\u1eee KÝ - MÃ HÓA CHU\u1ed6I ===
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from
+2026-03-24 18:32:47,804 - WARNING -  * Debugger is active!
+2026-03-24 18:32:47,829 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 18:38:17,122 - DEBUG - _run_protected started
+2026-03-24 18:38:17,138 - DEBUG - Decrypted length: 40829
+2026-03-24 18:38:17,138 - DEBUG - Decrypted code snippet: # === LÀM NHI\u1ec4U CH\u1eee KÝ - MÃ HÓA CHU\u1ed6I ===
+import base64
+from __future__ import annotations
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+imp
+2026-03-24 18:38:17,138 - ERROR - Error in _run_protected
+Traceback (most recent call last):
+  File "C:\tool\Threat_Intelligence\templates\admin\protect_data_admin.py", line 49, in _run_protected
+    exec(decrypted, namespace)
+  File "<string>", line 3
+SyntaxError: from __future__ imports must occur at the beginning of the file
+2026-03-24 18:38:20,397 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-24 18:38:20,397 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-24 18:38:20,399 - INFO -  * Restarting with stat
+2026-03-24 18:38:20,732 - DEBUG - _run_protected started
+2026-03-24 18:38:20,732 - DEBUG - Decrypted length: 40829
+2026-03-24 18:38:20,732 - DEBUG - Decrypted code snippet: # === LÀM NHI\u1ec4U CH\u1eee KÝ - MÃ HÓA CHU\u1ed6I ===
+import base64
+from __future__ import annotations
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+imp
+2026-03-24 18:38:20,748 - ERROR - Error in _run_protected
+Traceback (most recent call last):
+  File "C:\tool\Threat_Intelligence\templates\admin\protect_data_admin.py", line 49, in _run_protected
+    exec(decrypted, namespace)
+  File "<string>", line 3
+SyntaxError: from __future__ imports must occur at the beginning of the file
+2026-03-24 18:38:22,535 - WARNING -  * Debugger is active!
+2026-03-24 18:38:22,567 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 18:41:03,626 - INFO -  * Detected change in 'C:\\tool\\Threat_Intelligence\\templates\\admin\\protect_data_admin.py', reloading
+2026-03-24 18:41:15,352 - DEBUG - _run_protected started
+2026-03-24 18:41:15,352 - DEBUG - Decrypted length: 40786
+2026-03-24 18:41:15,367 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 18:41:18,890 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-24 18:41:18,890 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-24 18:41:18,892 - INFO -  * Restarting with stat
+2026-03-24 18:41:19,242 - DEBUG - _run_protected started
+2026-03-24 18:41:19,242 - DEBUG - Decrypted length: 40786
+2026-03-24 18:41:19,242 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 18:41:23,680 - WARNING -  * Debugger is active!
+2026-03-24 18:41:23,691 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 18:45:35,749 - INFO -  * Detected change in 'C:\\tool\\Threat_Intelligence\\templates\\admin\\protect_data_admin.py', reloading
+2026-03-24 18:45:36,438 - INFO -  * Restarting with stat
+2026-03-24 18:45:37,200 - DEBUG - _run_protected started
+2026-03-24 18:45:37,206 - DEBUG - Decrypted length: 40786
+2026-03-24 18:45:37,207 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 18:45:40,594 - WARNING -  * Debugger is active!
+2026-03-24 18:45:40,606 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 18:46:06,152 - INFO -  * Detected change in 'C:\\tool\\Threat_Intelligence\\templates\\admin\\protect_data_admin.py', reloading
+2026-03-24 18:46:07,668 - INFO -  * Restarting with stat
+2026-03-24 18:46:10,032 - WARNING -  * Debugger is active!
+2026-03-24 18:46:10,089 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 18:46:25,791 - INFO -  * Detected change in 'C:\\tool\\Threat_Intelligence\\app.py', reloading
+2026-03-24 18:46:26,128 - INFO -  * Restarting with stat
+2026-03-24 18:46:28,884 - WARNING -  * Debugger is active!
+2026-03-24 18:46:28,906 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 18:47:06,434 - INFO -  * Detected change in 'C:\\tool\\Threat_Intelligence\\app.py', reloading
+2026-03-24 18:47:06,844 - INFO -  * Restarting with stat
+2026-03-24 18:47:10,197 - DEBUG - _run_protected started
+2026-03-24 18:47:10,197 - DEBUG - Decrypted length: 40786
+2026-03-24 18:47:10,197 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 18:47:10,229 - WARNING -  * Debugger is active!
+2026-03-24 18:47:10,244 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 18:47:21,491 - DEBUG - _run_protected started
+2026-03-24 18:47:21,491 - DEBUG - Decrypted length: 40786
+2026-03-24 18:47:21,491 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 18:47:21,559 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-24 18:47:21,559 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-24 18:47:21,572 - INFO -  * Restarting with stat
+2026-03-24 18:47:23,573 - DEBUG - _run_protected started
+2026-03-24 18:47:23,575 - DEBUG - Decrypted length: 40786
+2026-03-24 18:47:23,575 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 18:47:23,612 - WARNING -  * Debugger is active!
+2026-03-24 18:47:23,617 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 18:54:18,115 - DEBUG - _run_protected started
+2026-03-24 18:54:18,118 - DEBUG - Decrypted length: 40786
+2026-03-24 18:54:18,118 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 18:54:19,925 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-24 18:54:19,925 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-24 18:54:19,927 - INFO -  * Restarting with stat
+2026-03-24 18:54:21,052 - DEBUG - _run_protected started
+2026-03-24 18:54:21,052 - DEBUG - Decrypted length: 40786
+2026-03-24 18:54:21,052 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 18:54:22,661 - WARNING -  * Debugger is active!
+2026-03-24 18:54:22,677 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 19:02:32,054 - DEBUG - _run_protected started
+2026-03-24 19:02:32,054 - DEBUG - Decrypted length: 40786
+2026-03-24 19:02:32,054 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:02:33,913 - DEBUG - _run_protected started
+2026-03-24 19:02:33,913 - DEBUG - Decrypted length: 40786
+2026-03-24 19:02:33,913 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:02:33,980 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-24 19:02:33,980 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-24 19:02:33,982 - INFO -  * Restarting with stat
+2026-03-24 19:02:34,469 - DEBUG - _run_protected started
+2026-03-24 19:02:34,473 - DEBUG - Decrypted length: 40786
+2026-03-24 19:02:34,473 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:02:36,085 - DEBUG - _run_protected started
+2026-03-24 19:02:36,085 - DEBUG - Decrypted length: 40786
+2026-03-24 19:02:36,085 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:02:36,117 - WARNING -  * Debugger is active!
+2026-03-24 19:02:36,117 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 19:15:21,834 - DEBUG - _run_protected started
+2026-03-24 19:15:21,834 - DEBUG - Decrypted length: 40786
+2026-03-24 19:15:21,834 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:15:24,665 - DEBUG - _run_protected started
+2026-03-24 19:15:24,668 - DEBUG - Decrypted length: 40786
+2026-03-24 19:15:24,669 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:15:24,776 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-24 19:15:24,777 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-24 19:16:37,307 - DEBUG - _run_protected started
+2026-03-24 19:16:37,307 - DEBUG - Decrypted length: 40786
+2026-03-24 19:16:37,307 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:16:37,393 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-24 19:16:37,393 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-24 19:17:42,272 - DEBUG - _run_protected started
+2026-03-24 19:17:42,272 - DEBUG - Decrypted length: 40786
+2026-03-24 19:17:42,272 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:17:42,367 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-24 19:17:42,367 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-24 19:17:42,369 - INFO -  * Restarting with stat
+2026-03-24 19:17:43,991 - DEBUG - _run_protected started
+2026-03-24 19:17:43,991 - DEBUG - Decrypted length: 40786
+2026-03-24 19:17:43,991 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:17:44,028 - WARNING -  * Debugger is active!
+2026-03-24 19:17:44,036 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 19:17:56,683 - INFO -  * Detected change in 'C:\\tool\\Threat_Intelligence\\templates\\admin\\protect_data_admin.py', reloading
+2026-03-24 19:17:57,816 - INFO -  * Restarting with stat
+2026-03-24 19:17:59,770 - DEBUG - _run_protected started
+2026-03-24 19:17:59,770 - DEBUG - Decrypted length: 40786
+2026-03-24 19:17:59,770 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:18:15,769 - DEBUG - _run_protected started
+2026-03-24 19:18:15,769 - DEBUG - Decrypted length: 40786
+2026-03-24 19:18:15,769 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:18:18,879 - DEBUG - _run_protected started
+2026-03-24 19:18:18,894 - DEBUG - Decrypted length: 40786
+2026-03-24 19:18:18,894 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:18:18,964 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-24 19:18:18,964 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-24 19:18:18,966 - INFO -  * Restarting with stat
+2026-03-24 19:18:19,301 - DEBUG - _run_protected started
+2026-03-24 19:18:19,301 - DEBUG - Decrypted length: 40786
+2026-03-24 19:18:19,301 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:18:20,723 - DEBUG - _run_protected started
+2026-03-24 19:18:20,723 - DEBUG - Decrypted length: 40786
+2026-03-24 19:18:20,723 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:18:20,754 - WARNING -  * Debugger is active!
+2026-03-24 19:18:20,754 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 19:19:19,395 - INFO -  * Detected change in 'C:\\tool\\Threat_Intelligence\\app.py', reloading
+2026-03-24 19:19:19,802 - INFO -  * Restarting with stat
+2026-03-24 19:19:20,542 - DEBUG - _run_protected started
+2026-03-24 19:19:20,545 - DEBUG - Decrypted length: 40786
+2026-03-24 19:19:20,545 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:19:23,371 - WARNING -  * Debugger is active!
+2026-03-24 19:19:23,379 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 19:20:01,690 - DEBUG - _run_protected started
+2026-03-24 19:20:01,690 - DEBUG - Decrypted length: 40786
+2026-03-24 19:20:01,690 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:20:03,463 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-24 19:20:03,463 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-24 19:20:03,467 - INFO -  * Restarting with stat
+2026-03-24 19:20:03,860 - DEBUG - _run_protected started
+2026-03-24 19:20:03,862 - DEBUG - Decrypted length: 40786
+2026-03-24 19:20:03,862 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:20:05,365 - WARNING -  * Debugger is active!
+2026-03-24 19:20:05,378 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 19:22:19,874 - DEBUG - _run_protected started
+2026-03-24 19:22:19,877 - DEBUG - Decrypted length: 40786
+2026-03-24 19:22:19,877 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:22:22,020 - DEBUG - _run_protected started
+2026-03-24 19:22:22,020 - DEBUG - Decrypted length: 40786
+2026-03-24 19:22:22,020 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:22:22,138 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-24 19:22:22,138 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-24 19:22:22,140 - INFO -  * Restarting with stat
+2026-03-24 19:22:23,785 - DEBUG - _run_protected started
+2026-03-24 19:22:23,785 - DEBUG - Decrypted length: 40786
+2026-03-24 19:22:23,785 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:22:25,207 - DEBUG - _run_protected started
+2026-03-24 19:22:25,207 - DEBUG - Decrypted length: 40786
+2026-03-24 19:22:25,207 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:22:25,239 - WARNING -  * Debugger is active!
+2026-03-24 19:22:25,239 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 19:29:45,583 - DEBUG - _run_protected started
+2026-03-24 19:29:45,583 - DEBUG - Decrypted length: 40786
+2026-03-24 19:29:45,583 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:29:49,021 - DEBUG - _run_protected started
+2026-03-24 19:29:49,021 - DEBUG - Decrypted length: 40786
+2026-03-24 19:29:49,021 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:29:49,127 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-24 19:29:49,128 - INFO - [33mPress CTRL+C to quit[0m
+2026-03-24 19:29:49,132 - INFO -  * Restarting with stat
+2026-03-24 19:29:49,512 - DEBUG - _run_protected started
+2026-03-24 19:29:49,512 - DEBUG - Decrypted length: 40786
+2026-03-24 19:29:49,512 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:29:50,896 - DEBUG - _run_protected started
+2026-03-24 19:29:50,896 - DEBUG - Decrypted length: 40786
+2026-03-24 19:29:50,896 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:29:50,949 - WARNING -  * Debugger is active!
+2026-03-24 19:29:50,958 - INFO -  * Debugger PIN: 873-550-952
+2026-03-24 19:33:28,524 - INFO -  * Detected change in 'C:\\tool\\Threat_Intelligence\\templates\\admin\\protect_data_admin.py', reloading
+2026-03-24 19:33:28,897 - INFO -  * Restarting with stat

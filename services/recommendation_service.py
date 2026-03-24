@@ -1,0 +1,7 @@
+def get_master_advice(total_score, is_file=False):
+    if total_score >= 2:
+        return """<strong class='text-danger'>🚨 MỨC ĐỘ: NGUY HIỂM TỘT ĐỘ (CRITICAL)</strong><br><br>Hệ thống Threat Intelligence đã đối chiếu chéo (Cross-check) và xác nhận đối tượng này chứa mã độc hoặc thuộc mạng lưới Phishing.<br><br><strong>QUY TRÌNH ỨNG PHÓ (INCIDENT RESPONSE):</strong><br>1. <strong>Cách ly:</strong> Ngắt kết nối mạng của thiết bị nếu đã lỡ click/chạy file.<br>2. <strong>Rà soát:</strong> Xóa ngay tệp tin/lịch sử duyệt web.<br>3. <strong>Bảo vệ:</strong> Thay đổi thông tin đăng nhập (Credentials) nếu nghi ngờ bị lộ.<br>4. <strong>Báo cáo:</strong> Cảnh báo cho cộng đồng về tên miền/tệp tin này."""
+    elif total_score == 1:
+        return """<strong class='text-warning'>⚠️ MỨC ĐỘ: CẢNH BÁO RỦI RO (SUSPICIOUS)</strong><br><br>Chỉ có một số ít hệ thống đánh giá đây là rủi ro. Có thể là mã độc mới (Zero-day) chưa phổ biến, hoặc chỉ là sự cố nhận diện nhầm (False Positive).<br><br><strong>KHUYẾN NGHỊ VẬN HÀNH:</strong><br>- Đưa vào diện theo dõi (Monitoring).<br>- Không nhập bất kỳ dữ liệu nhạy cảm nào vào trang web này.<br>- Cân nhắc sử dụng môi trường máy ảo (Sandbox) nếu bắt buộc phải mở file."""
+    else:
+        return """<strong class='text-success'>✅ MỨC ĐỘ: AN TOÀN (CLEAN)</strong><br><br>Dữ liệu đối chiếu từ Tứ Trụ API chưa phát hiện Dấu hiệu Thỏa hiệp (IoC - Indicators of Compromise) nào.<br><br><strong>LƯU Ý:</strong> An toàn ở thời điểm hiện tại không đảm bảo an toàn tuyệt đối trong tương lai. Luôn duy trì cảnh giác."""

