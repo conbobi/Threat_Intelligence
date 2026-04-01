@@ -1,0 +1,145 @@
+<div class="d-flex justify-content-end mt-4 mb-4">
+    <div class="d-flex align-items-center gap-4 px-3 py-2 rounded"
+         style="background: rgba(255,255,255,0.05); backdrop-filter: blur(8px);">
+
+        <!-- Quay lại trang chủ -->
+        <a href="/" class="menu-link">
+            <i class="bi bi-house-fill"></i>
+            <span>Trang chủ</span>
+        </a>
+
+        <!-- Tin tức -->
+        <a href="/user/news" class="menu-link {% if active_page == 'news' %}active-menu{% endif %}">
+            <i class="bi bi-newspaper"></i>
+            <span>Tin tức</span>
+        </a>
+
+
+
+        <!-- Giới thiệu -->
+        <a href="#" class="menu-link" onclick="showIntroductionModal(event)">
+            <i class="bi bi-info-circle-fill"></i>
+            <span>Giới thiệu</span>
+        </a>
+<!-- Lịch sử -->
+<a href="/history" class="menu-link {% if active_page == 'history' %}active-menu{% endif %}">
+    <i class="bi bi-clock-history"></i>
+    <span>Lịch sử</span>
+</a>
+
+<!-- Báo cáo -->
+<a href="/report" class="menu-link">
+    <i class="bi bi-flag-fill"></i>
+    <span>Báo cáo</span>
+</a>
+        <!-- User Area -->
+        <div id="authArea">
+            {% if user_id %}
+                <div class="dropdown user-hover-dropdown">
+                    <button
+                        class="btn btn-outline-light dropdown-toggle d-flex align-items-center gap-2"
+                        type="button"
+                        id="userMenu"
+                        aria-expanded="false"
+                    >
+                        <i class="bi bi-person-circle"></i>
+                        <span>{{ username or 'Người dùng' }}</span>
+                    </button>
+
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                        <li>
+                            <a class="dropdown-item" href="{{ url_for('user.profile') }}">
+                                <i class="bi bi-person me-2"></i>Trang cá nhân
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ url_for('auth.logout') }}">
+                                <i class="bi bi-box-arrow-right me-2"></i>Đăng xuất
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {% else %}
+                <a href="{{ url_for('auth.login_page') }}" class="btn btn-outline-light">
+                    Đăng nhập
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+.menu-link {
+    text-decoration: none;
+    color: #f8fafc;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.menu-link:hover {
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.menu-link.active-menu {
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+}
+</style>
+
+<script>
+// Load user info
+async function loadUserMenu() {
+    const sb = window.supabase.createClient(
+        "https://ddljfrzszcjtsenlgfqj.supabase.co",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRkbGpmcnpzemNqdHNlbmxnZnFqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzMzI5OTcsImV4cCI6MjA4NjkwODk5N30.id1F3yrnPEixcQIlq0knPOqPURdC9jSGhWbRcUzlwK8"
+    );
+
+    const { data: { user } } = await sb.auth.getUser();
+    const userEmail = document.getElementById('userEmail');
+    const userIcon = document.getElementById('userIcon');
+    const userTooltip = document.getElementById('userTooltip');
+
+    if (user) {
+        userEmail.textContent = user.email;
+
+        userIcon.onmouseenter = () => userTooltip.style.display = 'block';
+        userIcon.onmouseleave = () => userTooltip.style.display = 'none';
+        userTooltip.onmouseenter = () => userTooltip.style.display = 'block';
+        userTooltip.onmouseleave = () => userTooltip.style.display = 'none';
+    } else {
+        userEmail.innerHTML = '<a href="/auth/login" class="btn btn-outline-light btn-sm">Đăng nhập</a>';
+        // Ẩn tooltip khi chưa đăng nhập (hoặc không hiện)
+        userIcon.onmouseenter = () => {};
+        userTooltip.style.display = 'none';
+    }
+}
+
+function confirmLogout() {
+    if (confirm('Bạn có chắc chắn muốn thoát không?')) {
+        logout();
+    }
+}
+
+async function logout() {
+    const sb = window.supabase.createClient(
+        "https://ddljfrzszcjtsenlgfqj.supabase.co",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRkbGpmcnpzemNqdHNlbmxnZnFqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzMzI5OTcsImV4cCI6MjA4NjkwODk5N30.id1F3yrnPEixcQIlq0knPOqPURdC9jSGhWbRcUzlwK8"
+    );
+    await sb.auth.signOut();
+    localStorage.clear();
+    location.href = '/';
+}
+
+function showIntroductionModal(event) {
+    event.preventDefault();
+    alert('Giới thiệu hệ thống - Hãy xem trang chủ để biết thêm chi tiết');
+}
+
+// Auto load
+loadUserMenu();
+</script>

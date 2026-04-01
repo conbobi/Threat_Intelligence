@@ -45,8 +45,11 @@ def scan_url(url, user_id=None):
         </div>"""
         status_icon = "🔴" if vt_res.get('status') == "DOC_HAI" else ("🟡" if vt_res.get('status') == "CANH_BAO" else "🟢")
         results_list.append(f"{status_icon} <strong>VirusTotal:</strong> Báo cáo mức độ {vt_res.get('risk_score')}/96 rủi ro.{vt_html}")
-        if vt_res.get('status') == "DOC_HAI":
-            total_risk_score += 1
+        # Thay dòng cũ:
+        # if vt_res.get('status') == "DOC_HAI":
+        #     total_risk_score += 1
+        # Thành:
+        total_risk_score += vt_res.get("risk_score", 0)
         raw_details["virustotal"] = stats
 
     # Google Safe Browsing

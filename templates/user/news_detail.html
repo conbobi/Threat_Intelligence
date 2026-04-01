@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}{{ news.title }} - Hệ thống Threat Intelligence{% endblock %}
+{% block content %}
+    {% include 'components/header_menu.html' %}
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('user.index') }}">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('news.news_list') }}">Tin tức</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ news.title }}</li>
+            </ol>
+        </nav>
+
+        <div class="card bg-dark text-white">
+            {% if news.thumbnail_url %}
+            <img src="{{ news.thumbnail_url }}" class="card-img-top" alt="{{ news.title }}">
+            {% endif %}
+            <div class="card-body">
+                <h1 class="card-title">{{ news.title }}</h1>
+                <p class="text-muted"><small>Đăng ngày: {{ news.created_at|default('') }}</small></p>
+                <div class="card-text mt-4">
+                    {{ news.content|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

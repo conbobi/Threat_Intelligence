@@ -65,11 +65,11 @@ window.startUrlScan = async function () {
     if (isScanning) return;
     isScanning = true;
 
-    if (!window.isAuthReady) {
-        alert("Đang tải thông tin đăng nhập, vui lòng thử lại!");
-        isScanning = false;
-        return;
-    }
+    // if (!window.isAuthReady) {
+    //     alert("Đang tải thông tin đăng nhập, vui lòng thử lại!");
+    //     isScanning = false;
+    //     return;
+    // }
 
     const url = document.getElementById('urlInput').value;
     if (!url) {
@@ -110,11 +110,11 @@ window.startFileScan = async function () {
     if (isScanning) return;
     isScanning = true;
 
-    if (!window.isAuthReady) {
-        alert("Đang tải thông tin đăng nhập!");
-        isScanning = false;
-        return;
-    }
+    // if (!window.isAuthReady) {
+    //     alert("Đang tải thông tin đăng nhập!");
+    //     isScanning = false;
+    //     return;
+    // }
 
     const fileInput = document.getElementById('fileInput');
     if (fileInput.files.length === 0) {

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tin Tức & Cảnh Báo</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+body{
+    background:#0f172a;
+    color:#e2e8f0;
+    font-family:Segoe UI, sans-serif;
+}
+.header{
+    margin:30px 0;
+    text-align:center;
+}
+.header-box { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); padding: 40px; border-radius: 15px; margin-top: 30px; margin-bottom: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+
+.news-card{
+    background:#1e293b;
+    border-radius:8px;
+    padding:18px;
+    margin-bottom:18px;
+    border:1px solid #334155;
+}
+
+.news-title{
+    font-weight:600;
+    font-size:18px;
+    margin-bottom:6px;
+}
+
+.news-date{
+    font-size:13px;
+    color:#94a3b8;
+}
+
+.news-content{
+    margin-top:10px;
+    line-height:1.6;
+}
+
+.badge-danger{
+    background:#ef4444;
+}
+
+.badge-warning{
+    background:#f59e0b;
+}
+
+.domain-box{
+    margin-top:10px;
+    padding:8px;
+    background:#020617;
+    border-radius:6px;
+    font-size:13px;
+    color:#94a3b8;
+}
+
+.menu-link 
+{
+            text-decoration: none;
+            color: #f8fafc;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+.menu-link:hover {
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <!-- MENU GÓC PHẢI -->
+    <div class="d-flex justify-content-end mt-4 mb-4">
+        <div class="d-flex align-items-center gap-4 px-3 py-2 rounded"
+             style="background: rgba(255,255,255,0.05); backdrop-filter: blur(8px);">
+
+            <!-- Quay lại trang chủ -->
+            <a href="/" class="menu-link">
+                <i class="bi bi-house-fill"></i>
+                <span>Trang chủ</span>
+            </a>
+
+            <!-- Tin tức (Active) -->
+            <a href="/user/news" class="menu-link" style="color: #3b82f6; background: rgba(59, 130, 246, 0.1);">
+                <i class="bi bi-newspaper"></i>
+                <span>Tin tức</span>
+            </a>
+
+            <!-- Báo cáo -->
+            <a href="/report" class="menu-link">
+                <i class="bi bi-flag-fill"></i>
+                <span>Báo cáo</span>
+            </a>
+
+                        <!-- lịch sử -->
+            <a href="/history" class="menu-link">
+                <i class="bi bi-flag-fill"></i>
+                <span>Lịch sử</span>
+            </a>
+
+            <!-- Giới thiệu -->
+            <a href="#" class="menu-link" onclick="showIntroductionModal(event)">
+                <i class="bi bi-info-circle-fill"></i>
+                <span>Giới thiệu</span>
+            </a>
+
+            <!-- Nút đăng nhập / Lịch sử & User -->
+            <div id="authArea"></div>
+        </div>
+    </div>
+<div class="header">
+    <h3>📰 Tin Tức & Cảnh Báo</h3>
+    <p>Danh sách cảnh báo website lừa đảo mới nhất</p>
+</div>
+
+{% for news in news_list %}
+<div class="news-card">
+    <div class="d-flex justify-content-between">
+        <div class="news-title">{{ news.title }}</div>
+        <span class="badge {% if news.risk_level == 'high' %}badge-danger{% else %}badge-warning{% endif %}">
+            {{ news.risk_level_display|default('Cảnh báo') }}
+        </span>
+    </div>
+
+    <div class="news-date">{{ news.created_at|default('')|truncate(10, True, '') }}</div>
+
+    <div class="news-content">
+        {{ news.summary }}
+    </div>
+
+    {% if news.thumbnail_url %}
+    <div class="mt-2">
+        <img src="{{ news.thumbnail_url }}" alt="{{ news.title }}" style="max-width: 100%; max-height: 200px;">
+    </div>
+    {% endif %}
+
+    <div class="domain-box">
+        <a href="{{ url_for('news.news_detail', news_id=news.id) }}" class="btn btn-sm btn-primary mt-2">Xem chi tiết</a>
+    </div>
+</div>
+{% else %}
+<div class="alert alert-info">Chưa có bài viết nào.</div>
+{% endfor %}
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+    const sb = window.supabase.createClient(
+        "https://ddljfrzszcjtsenlgfqj.supabase.co",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRkbGpmcnpzemNqdHNlbmxnZnFqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzMzI5OTcsImV4cCI6MjA4NjkwODk5N30.id1F3yrnPEixcQIlq0knPOqPURdC9jSGhWbRcUzlwK8"
+    );
+
+    /* HIỂN THỊ USER */
+    async function loadUser() {
+        const { data: { user } } = await sb.auth.getUser();
+        const authArea = document.getElementById("authArea");
+
+        /* CHƯA LOGIN */
+        if (!user) {
+            authArea.innerHTML = `
+                <a href="/auth/login" class="btn btn-outline-light">Đăng nhập</a>
+            `;
+            return;
+        }
+
+        //  ĐÃ LOGIN
+    authArea.innerHTML = `
+    <div class="d-flex align-items-center gap-3">
+        <a href="/history" class="menu-link">
+            <i class="bi bi-clock-history"></i>
+            <span>Lịch sử</span>
+        </a>
+
+        <div class="position-relative d-flex align-items-center">
+            <i class="bi bi-person-circle fs-4 text-white"
+                id="userIcon"
+                style="cursor:pointer;">
+            </i>
+
+            <div id="userTooltip"
+                style="
+                    display:none;
+                    position:absolute;
+                    top:40px;
+                    right:0;
+                    background:#1e293b;
+                    padding:10px 15px;
+                    border-radius:8px;
+                    box-shadow:0 5px 15px rgba(0,0,0,0.5);
+                    white-space:nowrap;
+                    z-index:999;
+                ">
+                <div style="font-size:13px;">${user.email}</div>
+
+                <div onclick="confirmLogout()"
+                     style="cursor:pointer; font-size:13px; margin-top:6px;">
+                     Thoát
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
+
+        /* Setup event listeners sau khi render */
+        const icon = document.getElementById("userIcon");
+        const tooltip = document.getElementById("userTooltip");
+
+        icon.onmouseenter = () => tooltip.style.display = "block";
+        icon.onmouseleave = () => tooltip.style.display = "none";
+
+        tooltip.onmouseenter = () => tooltip.style.display = "block";
+        tooltip.onmouseleave = () => tooltip.style.display = "none";
+    }
+
+    /* XÁC NHẬN LOGOUT */
+    function confirmLogout() {
+        const ok = confirm("Bạn có chắc chắn muốn thoát không?");
+        if (ok) {
+            logout();
+        }
+    }
+
+    /* LOGOUT */
+    async function logout() {
+        await sb.auth.signOut();
+        localStorage.clear();
+        location.reload();
+    }
+
+    /* AUTO LOAD */
+    loadUser();
+
+    /* REALTIME */
+    sb.auth.onAuthStateChange(() => {
+        loadUser();
+    });
+
+    /* GIỚI THIỆU MODAL */
+    function showIntroductionModal(event) {
+        event.preventDefault();
+        alert('Giới thiệu hệ thống - Hãy xem trang chủ để biết thêm chi tiết');
+    }
+</script>
+
+</body>
+</html>

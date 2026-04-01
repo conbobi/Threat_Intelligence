@@ -85,3 +85,36 @@ body {
     border-bottom: 1px solid #334155;
     margin-bottom: 20px;
 }
+.top-nav {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+}
+
+.top-nav-link {
+    transition: opacity 0.2s ease;
+}
+
+.top-nav-link:hover {
+    opacity: 0.8;
+}
+
+.user-hover-dropdown {
+    position: relative;
+}
+
+.user-hover-dropdown .dropdown-menu {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all 0.2s ease;
+    margin-top: 0.4rem;
+    pointer-events: none;
+}
+
+.user-hover-dropdown .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}

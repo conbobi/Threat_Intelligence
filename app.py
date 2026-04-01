@@ -2,6 +2,8 @@ import os
 import threading
 from flask import Flask
 from config import Config
+from routes.user_routes import user_bp
+from routes.news_routes import news_bp   # thêm dòng import
 from templates.admin.protect_data_admin import run_protected
 import subprocess
 import sys
@@ -33,10 +35,13 @@ def create_app():
     from routes.admin_routes import admin_bp
 
     app.register_blueprint(auth_bp)
-    app.register_blueprint(user_bp)
     app.register_blueprint(scan_bp)
     app.register_blueprint(admin_bp)
-
+    app.register_blueprint(user_bp)
+    app.register_blueprint(news_bp)
+    @app.route("/health")
+    def health():
+        return {"status": "ok"}, 200
     return app
 
 

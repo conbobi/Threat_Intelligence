@@ -1,0 +1,46 @@
+<div class="top-nav-wrap d-flex justify-content-end mt-4 mb-4">
+    <div class="top-nav d-flex align-items-center gap-4 px-3 py-2 rounded">
+        <a href="#" class="text-decoration-none text-light d-flex align-items-center gap-1 top-nav-link">
+            <i class="bi bi-question-circle-fill"></i>
+            <span>Hướng dẫn</span>
+        </a>
+
+        <a href="#" class="text-decoration-none text-light d-flex align-items-center gap-1 top-nav-link">
+            <i class="bi bi-envelope-fill"></i>
+            <span>Liên hệ</span>
+        </a>
+
+        <a href="#" class="text-decoration-none text-light d-flex align-items-center gap-1 top-nav-link">
+            <i class="bi bi-info-circle-fill"></i>
+            <span>Giới thiệu</span>
+        </a>
+
+        <div id="authArea">
+            {% if user_id %}
+                <div class="dropdown user-hover-dropdown">
+                    <button
+                        class="btn btn-outline-light dropdown-toggle d-flex align-items-center gap-2"
+                        type="button"
+                        id="userMenu"
+                        aria-expanded="false"
+                    >
+                        <i class="bi bi-person-circle"></i>
+                        <span>{{ username or 'Người dùng' }}</span>
+                    </button>
+
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                        <li>
+                            <a class="dropdown-item" href="{{ url_for('auth.logout') }}">
+                                <i class="bi bi-box-arrow-right me-2"></i>Đăng xuất
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {% else %}
+                <a href="{{ url_for('auth.login') }}" class="btn btn-outline-light">
+                    Đăng nhập
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
