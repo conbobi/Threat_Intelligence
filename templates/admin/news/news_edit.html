@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sửa bài viết | Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/news/news.css') }}">
+    <style>
+        .form-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(8px);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid #334155;
+        }
+        .form-label {
+            font-weight: 500;
+            color: #cbd5e1;
+        }
+        .form-control, .form-select {
+            background-color: #0f172a;
+            border-color: #334155;
+            color: #f1f5f9;
+        }
+        .form-control:focus, .form-select:focus {
+            background-color: #0f172a;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 0.25rem rgba(59,130,246,0.25);
+            color: #f1f5f9;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border: none;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+        }
+        .thumbnail-preview {
+            max-width: 150px;
+            margin-top: 0.5rem;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-4">
+        <div class="form-container">
+            <h2 class="text-center mb-4"><i class="bi bi-pencil-square"></i> Sửa bài viết</h2>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ 'danger' if category=='error' else 'success' }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+
+            <form method="POST" action="{{ url_for('admin_news.news_edit', news_id=news.id) }}">
+                <div class="mb-3">
+                    <label for="tieu_de" class="form-label">Tiêu đề *</label>
+                    <input type="text" class="form-control" id="tieu_de" name="tieu_de" value="{{ news.title }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="mo_ta_ngan" class="form-label">Mô tả ngắn *</label>
+                    <textarea class="form-control" id="mo_ta_ngan" name="mo_ta_ngan" rows="2" required>{{ news.summary }}</textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="noi_dung_chi_tiet" class="form-label">Nội dung chi tiết *</label>
+                    <textarea class="form-control" id="noi_dung_chi_tiet" name="noi_dung_chi_tiet" rows="8" required>{{ news.content }}</textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="hinh_anh_minh_hoa" class="form-label">Ảnh đại diện (URL)</label>
+                    <input type="url" class="form-control" id="hinh_anh_minh_hoa" name="hinh_anh_minh_hoa" value="{{ news.thumbnail_url or '' }}">
+                    {% if news.thumbnail_url %}
+                    <div class="mt-2">
+                        <img src="{{ news.thumbnail_url }}" class="thumbnail-preview" alt="Current thumbnail">
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="mb-3">
+                    <label for="trang_thai" class="form-label">Trạng thái</label>
+                    <select class="form-select" id="trang_thai" name="trang_thai">
+                        <option value="published" {% if news.status == 'published' %}selected{% endif %}>Xuất bản</option>
+                        <option value="draft" {% if news.status == 'draft' %}selected{% endif %}>Nháp</option>
+                    </select>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <a href="{{ url_for('admin_news.news_list') }}" class="btn btn-outline-light">Hủy</a>
+                    <button type="submit" class="btn btn-primary">Cập nhật</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Quản lý báo cáo - Admin{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Danh sách báo cáo</h2>
+
+    <!-- Bộ lọc trạng thái -->
+    <div class="mb-3">
+        <form method="GET" class="row g-3 align-items-end">
+            <div class="col-auto">
+                <label for="status" class="form-label">Lọc theo trạng thái</label>
+                <select name="status" id="status" class="form-select">
+                    <option value="">Tất cả</option>
+                    <option value="PENDING" {% if current_filter == 'PENDING' %}selected{% endif %}>Chờ xử lý</option>
+                    <option value="REVIEWING" {% if current_filter == 'REVIEWING' %}selected{% endif %}>Đang xem xét</option>
+                    <option value="RESOLVED" {% if current_filter == 'RESOLVED' %}selected{% endif %}>Đã xử lý</option>
+                    <option value="REJECTED" {% if current_filter == 'REJECTED' %}selected{% endif %}>Từ chối</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Lọc</button>
+                <a href="{{ url_for('admin_report.list_reports') }}" class="btn btn-secondary">Xóa lọc</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bảng báo cáo -->
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Người dùng</th>
+                    <th>Loại</th>
+                    <th>Target</th>
+                    <th>Trạng thái</th>
+                    <th>Ngày tạo</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for report in reports %}
+                <tr>
+                    <td>{{ report.id }}</td>
+                    <td>{{ report.user_id or 'Không xác định' }}</td>
+                    <td>{{ 'URL' if report.report_type == 'url' else 'File' }}</td>
+                    <td>{{ report.target[:50] }}{% if report.target|length > 50 %}...{% endif %}</td>
+                    <td>
+                        {% if report.status == 'PENDING' %}
+                            <span class="badge bg-warning text-dark">Chờ xử lý</span>
+                        {% elif report.status == 'REVIEWING' %}
+                            <span class="badge bg-info">Đang xem xét</span>
+                        {% elif report.status == 'RESOLVED' %}
+                            <span class="badge bg-success">Đã xử lý</span>
+                        {% elif report.status == 'REJECTED' %}
+                            <span class="badge bg-danger">Từ chối</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ report.created_at[:10] if report.created_at else '' }}</td>
+                    <td>
+                        <a href="{{ url_for('admin_report.detail_report', report_id=report.id) }}" class="btn btn-sm btn-outline-primary">Chi tiết</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="7" class="text-center">Không có báo cáo nào.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

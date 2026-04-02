@@ -3,11 +3,6 @@ from services.auth_service import register_user, login_user
 
 auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
 
-@auth_bp.route('/login', methods=['GET'])
-def login_page():
-    return render_template('user/auth/login.html')
-
-
 @auth_bp.route('/register', methods=['GET'])
 def register_page():
     return render_template('user/auth/register.html')
@@ -27,6 +22,9 @@ def register():
     if result.get('success'):
         return jsonify(result), 200
     return jsonify(result), 400
+@auth_bp.route('/login', methods=['GET'])
+def login_page():
+    return render_template('user/auth/login.html')
 
 @auth_bp.route('/login', methods=['POST'])
 def login():
@@ -66,7 +64,7 @@ def sync_session():
     session['role'] = data.get('role', 'USER')
 
     return jsonify({'success': True, 'redirect': '/'}), 200
-@auth_bp.route('/logout')
+@auth_bp.route('/logout', methods=['GET', 'POST'])
 def logout():
     session.clear()
     flash('Đã đăng xuất', 'info')
@@ -82,3 +80,15 @@ def inject_user():
             'role': session.get('role')
         }
     return dict(current_user=user)
+
+@auth_bp.route('/status', methods=['GET'])
+def auth_status():
+    if 'user_id' in session:
+        return jsonify({
+            'logged_in': True,
+            'user_id': session['user_id'],
+            'email': session.get('email'),
+            'username': session.get('username'),
+            'role': session.get('role')
+        })
+    return jsonify({'logged_in': False})

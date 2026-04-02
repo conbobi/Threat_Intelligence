@@ -42,3 +42,12 @@ def get_recent_history_by_target(
         .limit(1) \
         .execute()
     return result.data[0] if result.data else None
+def get_user_history(user_id: str, limit: int = 50) -> List[Dict[str, Any]]:
+    """Lấy lịch sử quét của một người dùng, sắp xếp mới nhất trước."""
+    result = supabase.table('scan_results') \
+        .select('*') \
+        .eq('user_id', user_id) \
+        .order('created_at', desc=True) \
+        .limit(limit) \
+        .execute()
+    return result.data

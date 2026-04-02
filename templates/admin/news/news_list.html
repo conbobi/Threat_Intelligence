@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý tin tức | Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/news/news.css') }}">
+    <style>
+        /* Override for admin table */
+        .admin-table-container {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        .table-admin {
+            color: #e2e8f0;
+            border-color: #334155;
+        }
+        .table-admin thead th {
+            border-bottom: 2px solid #3b82f6;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+        .table-admin td {
+            vertical-align: middle;
+            border-color: #1e293b;
+        }
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .status-published {
+            background: #10b981;
+            color: white;
+        }
+        .status-draft {
+            background: #f59e0b;
+            color: white;
+        }
+        .action-buttons .btn {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+        }
+        .thumbnail-preview {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            background: #0f172a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-4">
+        <!-- Header & Actions -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold"><i class="bi bi-newspaper"></i> Quản lý tin tức</h2>
+            <div>
+                <a href="/admin/dashboard" class="btn btn-outline-light me-2">
+                    <i class="bi bi-arrow-left"></i> Dashboard
+                </a>
+                <a href="{{ url_for('admin_news.news_create') }}" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> Đăng bài mới
+                </a>
+            </div>
+        </div>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ 'danger' if category == 'error' else 'success' }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <!-- Table -->
+        <div class="admin-table-container">
+            {% if news_list %}
+            <div class="table-responsive">
+                <table class="table table-admin align-middle">
+                    <thead>
+                        <tr>
+                            <th style="width: 15%">Ảnh đại diện</th>
+                            <th style="width: 25%">Tiêu đề</th>
+                            <th style="width: 30%">Mô tả ngắn</th>
+                            <th style="width: 10%">Ngày đăng</th>
+                            <th style="width: 10%">Trạng thái</th>
+                            <th style="width: 10%">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in news_list %}
+                        <tr>
+                            <td>
+                                {% if item.thumbnail_url %}
+                                <img src="{{ item.thumbnail_url }}" class="thumbnail-preview" alt="thumbnail">
+                                {% else %}
+                                <div class="thumbnail-preview bg-secondary d-flex align-items-center justify-content-center text-muted">
+                                    <i class="bi bi-image"></i>
+                                </div>
+                                {% endif %}
+                            </td>
+                            <td><strong>{{ item.title }}</strong></td>
+                            <td>{{ item.summary|truncate(80) }}</td>
+                            <td>{{ item.created_at[:10] if item.created_at else '—' }}</td>
+                            <td>
+                                <span class="status-badge {% if item.status == 'published' %}status-published{% else %}status-draft{% endif %}">
+                                    {% if item.status == 'published' %}Xuất bản{% else %}Nháp{% endif %}
+                                </span>
+                            </td>
+                            <td class="action-buttons">
+                                <a href="{{ url_for('admin_news.news_edit', news_id=item.id) }}" class="btn btn-sm btn-outline-info me-1">
+                                    <i class="bi bi-pencil-square"></i> Sửa
+                                </a>
+                                <form action="{{ url_for('admin_news.news_delete', news_id=item.id) }}" method="POST" class="d-inline" onsubmit="return confirm('Xóa bài viết này? Hành động không thể hoàn tác.');">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                        <i class="bi bi-trash3"></i> Xóa
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+                <p class="text-center text-light py-4">Chưa có bài viết nào. Hãy <a href="{{ url_for('admin_news.news_create') }}">đăng bài mới</a>.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/news.js') }}"></script>
+</body>
+</html>

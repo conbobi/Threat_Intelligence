@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Chi tiết báo cáo #{{ report.id }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h3>Báo cáo #{{ report.id }}</h3>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Người dùng</dt>
+                <dd class="col-sm-9">{{ report.user_id or 'Không xác định' }}</dd>
+
+                <dt class="col-sm-3">Loại</dt>
+                <dd class="col-sm-9">{{ 'URL' if report.report_type == 'url' else 'File' }}</dd>
+
+                <dt class="col-sm-3">Target</dt>
+                <dd class="col-sm-9">{{ report.target }}</dd>
+
+                {% if report.normalized_target %}
+                <dt class="col-sm-3">Target chuẩn hóa</dt>
+                <dd class="col-sm-9">{{ report.normalized_target }}</dd>
+                {% endif %}
+
+                <dt class="col-sm-3">Lý do</dt>
+                <dd class="col-sm-9">{{ report.reason or 'Không có' }}</dd>
+
+                <dt class="col-sm-3">Ghi chú người dùng</dt>
+                <dd class="col-sm-9">{{ report.note or 'Không có' }}</dd>
+
+                <dt class="col-sm-3">Trạng thái</dt>
+                <dd class="col-sm-9">
+                    {% if report.status == 'PENDING' %}
+                        <span class="badge bg-warning text-dark">Chờ xử lý</span>
+                    {% elif report.status == 'REVIEWING' %}
+                        <span class="badge bg-info">Đang xem xét</span>
+                    {% elif report.status == 'RESOLVED' %}
+                        <span class="badge bg-success">Đã xử lý</span>
+                    {% elif report.status == 'REJECTED' %}
+                        <span class="badge bg-danger">Từ chối</span>
+                    {% endif %}
+                </dd>
+
+                <dt class="col-sm-3">Ngày tạo</dt>
+                <dd class="col-sm-9">{{ report.created_at }}</dd>
+
+                {% if report.reviewed_at %}
+                <dt class="col-sm-3">Ngày xử lý</dt>
+                <dd class="col-sm-9">{{ report.reviewed_at }}</dd>
+                {% endif %}
+
+                {% if report.admin_note %}
+                <dt class="col-sm-3">Ghi chú admin</dt>
+                <dd class="col-sm-9">{{ report.admin_note }}</dd>
+                {% endif %}
+            </dl>
+
+            <hr>
+
+            <h5>Cập nhật trạng thái</h5>
+            <form method="POST" action="{{ url_for('admin_report.update_report_status', report_id=report.id) }}">
+                <div class="mb-3">
+                    <label for="status" class="form-label">Trạng thái mới</label>
+                    <select name="status" id="status" class="form-select" required>
+                        <option value="PENDING" {% if report.status == 'PENDING' %}selected{% endif %}>Chờ xử lý</option>
+                        <option value="REVIEWING" {% if report.status == 'REVIEWING' %}selected{% endif %}>Đang xem xét</option>
+                        <option value="RESOLVED" {% if report.status == 'RESOLVED' %}selected{% endif %}>Đã xử lý</option>
+                        <option value="REJECTED" {% if report.status == 'REJECTED' %}selected{% endif %}>Từ chối</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="admin_note" class="form-label">Ghi chú admin</label>
+                    <textarea name="admin_note" id="admin_note" rows="3" class="form-control">{{ report.admin_note or '' }}</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Cập nhật</button>
+                <a href="{{ url_for('admin_report.list_reports') }}" class="btn btn-secondary">Quay lại danh sách</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

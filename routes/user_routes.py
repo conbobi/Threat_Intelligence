@@ -15,19 +15,6 @@ def index():
 
 
 
-@user_bp.route('/report')
-def report():
-    return render_template('user/report.html', active_page='report')
-
-@user_bp.route('/history')
-def history():
-    """Trang lịch sử quét của người dùng."""
-    if 'user_id' not in session:
-        flash('Vui lòng đăng nhập để xem lịch sử.', 'warning')
-        return redirect(url_for('auth.login_page'))
-    # Tạm thời chỉ hiển thị khung, sau sẽ thêm logic lấy dữ liệu
-    return render_template('user/history.html', active_page='history')
-
 @user_bp.route('/guide')
 def guide():
     """Trang hướng dẫn."""
@@ -45,4 +32,4 @@ def profile():
         flash('Không tìm thấy thông tin người dùng.', 'danger')
         return redirect(url_for('user.index'))
     
-    return render_template('user/profile.html', profile=profile)
+    return render_template('/user/report/report.html', profile=profile)

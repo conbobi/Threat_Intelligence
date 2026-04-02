@@ -80,10 +80,10 @@
                                 Lịch sử quét URL/File
                                 <span class="badge bg-primary rounded-pill">245</span>
                             </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <a href="{{ url_for('admin_report.list_reports') }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                                 Báo cáo phishing
                                 <span class="badge bg-primary rounded-pill">3</span>
-                            </li>
+                            </a>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Cấu hình API
@@ -102,10 +102,10 @@
                 <h5><i class="bi bi-newspaper"></i> Quản lý tin tức cảnh báo</h5>
             </div>
             <div class="card-body">
-                <a href="/admin/news" class="btn btn-outline-light me-2">
+                <a href="{{ url_for('admin_news.news_list') }}" class="btn btn-outline-light me-2">
                     <i class="bi bi-card-list"></i> Xem danh sách bài viết
                 </a>
-                <a href="/admin/news/create" class="btn btn-primary">
+                <a href="{{ url_for('admin_news.news_create') }}" class="btn btn-primary">
                     <i class="bi bi-plus-lg"></i> Đăng bài mới
                 </a>
             </div>

@@ -1,160 +1,14 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Báo Cáo Website Lừa Đảo - Hệ Thống Threat Intelligence</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #0f172a;
-            color: #f8fafc;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .header{
-            margin:30px 0;
-            text-align:center;
-        }
-        .header-box { background: linear-gradient(135deg, #d31919 0%, #d31919 100%); padding: 40px; border-radius: 15px; margin-top: 30px; margin-bottom: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+{% extends 'base.html' %}
 
-        .form-box{
-            background:#1e293b;
-            border:1px solid #334155;
-            border-radius:8px;
-            padding:25px;
-}
-        .form-label {
-            color: #cbd5e1;
-            font-weight: 500;
-            margin-bottom: 10px;
-            margin-top: 15px;
-        }
-        .form-control, .form-select {
-            background: #0f172a;
-            border: 1px solid #334155;
-            color: #f8fafc;
-            padding: 12px;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-        }
-        .form-control:focus, .form-select:focus {
-            background: #1e293b;
-            border-color: #ef4444;
-            box-shadow: 0 0 0 0.2rem rgba(239, 68, 68, 0.25);
-            color: #f8fafc;
-        }
-        .form-control::placeholder {
-            color: #64748b;
-        }
-        .btn-submit {
-            background-color: #ef4444;
-            border: none;
-            color: white;
-            font-weight: bold;
-            padding: 12px 40px;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            margin-top: 20px;
-            width: 100%;
-        }
-        .btn-submit:hover {
-            background-color: #dc2626;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
-        }
-        .btn-submit:active {
-            transform: translateY(0);
-            box-shadow: 0 5px 10px rgba(239, 68, 68, 0.3);
-        }
-        .info-box {
-            background: rgba(59, 130, 246, 0.1);
-            border-left: 4px solid #3b82f6;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            color: #cbd5e1;
-        }
-        .info-box strong {
-            color: #3b82f6;
-        }
-        .menu-link {
-            text-decoration: none;
-            color: #f8fafc;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.2s ease;
-            padding: 6px 12px;
-            border-radius: 6px;
-        }
-        .menu-link:hover {
-            color: #3b82f6;
-            background: rgba(59, 130, 246, 0.1);
-        }
-        .success-message {
-            display: none;
-            background: rgba(34, 197, 94, 0.2);
-            border: 1px solid #22c55e;
-            color: #4ade80;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-        }
-        .error-message {
-            display: none;
-            background: rgba(239, 68, 68, 0.2);
-            border: 1px solid #ef4444;
-            color: #f87171;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body>
+{% block title %}Báo cáo website lừa đảo{% endblock %}
+
+{% block content %}
+{% include 'components/header_menu.html' %}
 
 <div class="container">
-    <!-- MENU GÓC PHẢI -->
-    <div class="d-flex justify-content-end mt-4 mb-4">
-        <div class="d-flex align-items-center gap-4 px-3 py-2 rounded"
-             style="background: rgba(255,255,255,0.05); backdrop-filter: blur(8px);">
-
-            <!-- Quay lại trang chủ -->
-            <a href="/" class="menu-link">
-                <i class="bi bi-house-fill"></i>
-                <span>Trang chủ</span>
-            </a>
-
-            <!-- Tin tức -->
-            <a href="/user/news" class="menu-link">
-                <i class="bi bi-newspaper"></i>
-                <span>Tin tức</span>
-            </a>
-            <a href="/history" class="menu-link">
-                <i class="bi bi-flag-fill"></i>
-                <span>Lịch sử</span>
-            </a>
-            <!-- Báo cáo (Active) -->
-            <a href="/report" class="menu-link" style="color: #ef4444; background: rgba(239, 68, 68, 0.1);">
-                <i class="bi bi-flag-fill"></i>
-                <span>Báo cáo</span>
-            </a>
-
-            <!-- Giới thiệu -->
-            <a href="#" class="menu-link" onclick="showIntroductionModal(event)">
-                <i class="bi bi-info-circle-fill"></i>
-                <span>Giới thiệu</span>
-            </a>
-
-            <!-- Nút đăng nhập / Lịch sử & User -->
-            <div id="authArea" style="display: flex; align-items: center; gap: 1rem;"></div>
-        </div>
-    </div>
-
     <!-- HEADER -->
     <div class="header">
-        <h3>🚨  Báo Cáo Website Lừa Đảo</h3>
+        <h3>🚨 Báo Cáo Website Lừa Đảo</h3>
         <p>Giúp chúng tôi bảo vệ cộng đồng bằng cách báo cáo các website nguy hiểm</p>
     </div>
 
@@ -167,7 +21,7 @@
             </div>
 
             <form id="reportForm" class="form-box">
-                <!-- URL of scam website -->
+                <!-- URL -->
                 <div>
                     <label for="websiteUrl" class="form-label">
                         <i class="bi bi-link-45deg"></i> Địa chỉ website lừa đảo <span style="color: #ef4444;">*</span>
@@ -177,7 +31,7 @@
                     <small class="text-secondary">Nhập đầy đủ URL, bắt đầu bằng http:// hoặc https://</small>
                 </div>
 
-                <!-- Type of scam -->
+                <!-- Loại lừa đảo -->
                 <div>
                     <label for="scamType" class="form-label">
                         <i class="bi bi-exclamation-triangle-fill"></i> Loại lừa đảo <span style="color: #ef4444;">*</span>
@@ -195,7 +49,7 @@
                     </select>
                 </div>
 
-                <!-- Description -->
+                <!-- Mô tả -->
                 <div>
                     <label for="description" class="form-label">
                         <i class="bi bi-chat-dots-fill"></i> Mô tả chi tiết <span style="color: #ef4444;">*</span>
@@ -206,17 +60,16 @@
                     <small class="text-secondary">Cung cấp càng nhiều chi tiết càng tốt</small>
                 </div>
 
-                <!-- Contact information (optional) -->
+                <!-- Email -->
                 <div>
                     <label for="email" class="form-label">
                         <i class="bi bi-envelope-fill"></i> Email liên hệ (tùy chọn)
                     </label>
                     <input type="email" class="form-control" id="email" name="email"
                            placeholder="your.email@example.com">
-                    <small class="text-secondary">Để chúng tôi liên hệ lại nếu cần thêm thông tin</small>
                 </div>
 
-                <!-- Phone (optional) -->
+                <!-- Số điện thoại -->
                 <div>
                     <label for="phone" class="form-label">
                         <i class="bi bi-telephone-fill"></i> Số điện thoại (tùy chọn)
@@ -225,7 +78,7 @@
                            placeholder="0987654321">
                 </div>
 
-                <!-- Date encountered -->
+                <!-- Ngày gặp phải -->
                 <div>
                     <label for="date" class="form-label">
                         <i class="bi bi-calendar-fill"></i> Ngày bạn gặp phải <span style="color: #ef4444;">*</span>
@@ -233,7 +86,7 @@
                     <input type="date" class="form-control" id="date" name="date_encountered" required>
                 </div>
 
-                <!-- Have you already reported? -->
+                <!-- Đã báo cáo chưa -->
                 <div style="margin-top: 15px;">
                     <label class="form-label">
                         <input type="checkbox" id="alreadyReported" name="already_reported">
@@ -241,7 +94,7 @@
                     </label>
                 </div>
 
-                <!-- Message boxes -->
+                <!-- Thông báo -->
                 <div id="successMessage" class="success-message">
                     ✓ Cảm ơn bạn! Báo cáo của bạn đã được gửi thành công. Chúng tôi sẽ xem xét và đưa vào danh sách cảnh báo.
                 </div>
@@ -249,13 +102,13 @@
                     ✗ Có lỗi xảy ra khi gửi báo cáo. Vui lòng thử lại sau.
                 </div>
 
-                <!-- Submit button -->
+                <!-- Nút gửi -->
                 <button type="submit" class="btn-submit">
                     <i class="bi bi-send-fill"></i> Gửi Báo Cáo
                 </button>
             </form>
 
-            <!-- Info section -->
+            <!-- Hướng dẫn -->
             <div style="margin-top: 30px; padding: 20px; background: rgba(59, 130, 246, 0.05); border-radius: 10px;">
                 <h5 style="color: #3b82f6; margin-bottom: 15px;">
                     <i class="bi bi-shield-check"></i> Làm sao báo cáo của bạn được sử dụng?
@@ -271,11 +124,81 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    let currentUser = null;
+<style>
+    .header{
+        margin:30px 0;
+        text-align:center;
+    }
+    .form-box{
+        background:#1e293b;
+        border:1px solid #334155;
+        border-radius:8px;
+        padding:25px;
+    }
+    .form-label {
+        color: #cbd5e1;
+        font-weight: 500;
+        margin-bottom: 10px;
+        margin-top: 15px;
+    }
+    .form-control, .form-select {
+        background: #0f172a;
+        border: 1px solid #334155;
+        color: #f8fafc;
+        padding: 12px;
+        border-radius: 6px;
+    }
+    .form-control:focus, .form-select:focus {
+        background: #1e293b;
+        border-color: #ef4444;
+        box-shadow: 0 0 0 0.2rem rgba(239, 68, 68, 0.25);
+        color: #f8fafc;
+    }
+    .btn-submit {
+        background-color: #ef4444;
+        border: none;
+        color: white;
+        font-weight: bold;
+        padding: 12px 40px;
+        border-radius: 6px;
+        margin-top: 20px;
+        width: 100%;
+        transition: all 0.2s ease;
+    }
+    .btn-submit:hover {
+        background-color: #dc2626;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+    }
+    .info-box {
+        background: rgba(59, 130, 246, 0.1);
+        border-left: 4px solid #3b82f6;
+        padding: 15px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        color: #cbd5e1;
+    }
+    .success-message {
+        display: none;
+        background: rgba(34, 197, 94, 0.2);
+        border: 1px solid #22c55e;
+        color: #4ade80;
+        padding: 15px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+    }
+    .error-message {
+        display: none;
+        background: rgba(239, 68, 68, 0.2);
+        border: 1px solid #ef4444;
+        color: #f87171;
+        padding: 15px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+    }
+</style>
 
-    // Normalize URL để chuẩn hóa target
+<script>
     function normalizeUrl(url) {
         try {
             const parsed = new URL(url.startsWith('http') ? url : 'https://' + url);
@@ -296,22 +219,18 @@
         const dateEncountered = document.getElementById('date').value;
         const alreadyReported = document.getElementById('alreadyReported').checked;
 
-        // Chuẩn bị dữ liệu theo schema supabase
         const reportData = {
             user_id: currentUser ? currentUser.id : null,
-            report_type: "url",  // Constraint yêu cầu: 'url' hoặc 'file'
+            report_type: "url",
             target: websiteUrl,
             normalized_target: normalizeUrl(websiteUrl),
-            reason: scamType,  // Loại lừa đảo: phishing, fakeshop, malware, etc.
+            reason: scamType,
             note: `${description}\n\nNgày phát hiện: ${dateEncountered}\nChưa báo cáo cơ quan: ${!alreadyReported}\nEmail: ${email || 'N/A'}\nSĐT: ${phone || 'N/A'}`,
-            status: 'PENDING',  // Constraint: PENDING, REVIEWING, RESOLVED, REJECTED
-            admin_note: null,
-            reviewed_by: null,
-            reviewed_at: null
+            status: 'PENDING'
         };
 
         try {
-            const response = await fetch('/api/report/scam', {
+            const response = await fetch('/report/api/scam', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(reportData)
@@ -337,6 +256,7 @@
         }
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
     const sb = window.supabase.createClient(
@@ -344,101 +264,57 @@
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRkbGpmcnpzemNqdHNlbmxnZnFqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzMzI5OTcsImV4cCI6MjA4NjkwODk5N30.id1F3yrnPEixcQIlq0knPOqPURdC9jSGhWbRcUzlwK8"
     );
 
-    /* HIỂN THỊ USER */
+    let currentUser = null;
+
     async function loadUser() {
         const { data: { user } } = await sb.auth.getUser();
         currentUser = user;
         const authArea = document.getElementById("authArea");
 
-        /* CHƯA LOGIN */
         if (!user) {
-            authArea.innerHTML = `
-                <a href="/auth/login" class="btn btn-outline-light" style="padding: 6px 12px; border-radius: 6px;">Đăng nhập</a>
-            `;
+            authArea.innerHTML = `<a href="/auth/login" class="btn btn-outline-light" style="padding: 6px 12px; border-radius: 6px;">Đăng nhập</a>`;
             return;
         }
 
-        /* ĐÃ LOGIN */
         authArea.innerHTML = `
             <div class="d-flex align-items-center gap-3">
-                <a href="/history" class="menu-link">
-                    <i class="bi bi-clock-history"></i>
-                    <span>Lịch sử</span>
-                </a>
-
+                <a href="/history" class="menu-link"><i class="bi bi-clock-history"></i><span>Lịch sử</span></a>
                 <div class="position-relative d-flex align-items-center">
-                    <i class="bi bi-person-circle fs-4 text-white"
-                        id="userIcon"
-                        style="cursor:pointer;">
-                    </i>
-
-                    <div id="userTooltip"
-                        style="
-                            display:none;
-                            position:absolute;
-                            top:40px;
-                            right:0;
-                            background:#1e293b;
-                            padding:10px 15px;
-                            border-radius:8px;
-                            box-shadow:0 5px 15px rgba(0,0,0,0.5);
-                            white-space:nowrap;
-                            z-index:999;
-                        ">
+                    <i class="bi bi-person-circle fs-4 text-white" id="userIcon" style="cursor:pointer;"></i>
+                    <div id="userTooltip" style="display:none; position:absolute; top:40px; right:0; background:#1e293b; padding:10px 15px; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.5); white-space:nowrap; z-index:999;">
                         <div style="font-size:13px;">${user.email}</div>
-
-                        <div onclick="confirmLogout()"
-                            style="cursor:pointer; font-size:13px; margin-top:6px;">
-                            Thoát
-                        </div>
+                        <div onclick="confirmLogout()" style="cursor:pointer; font-size:13px; margin-top:6px;">Thoát</div>
                     </div>
                 </div>
             </div>
         `;
 
-        /* Setup event listeners sau khi render */
         const icon = document.getElementById("userIcon");
         const tooltip = document.getElementById("userTooltip");
-
         if(icon && tooltip) {
             icon.onmouseenter = () => tooltip.style.display = "block";
             icon.onmouseleave = () => tooltip.style.display = "none";
-
             tooltip.onmouseenter = () => tooltip.style.display = "block";
             tooltip.onmouseleave = () => tooltip.style.display = "none";
         }
     }
 
-    /* XÁC NHẬN LOGOUT */
     function confirmLogout() {
-        const ok = confirm("Bạn có chắc chắn muốn thoát không?");
-        if (ok) {
-            logout();
-        }
+        if (confirm("Bạn có chắc chắn muốn thoát không?")) logout();
     }
 
-    /* LOGOUT */
     async function logout() {
         await sb.auth.signOut();
         localStorage.clear();
         location.reload();
     }
 
-    /* AUTO LOAD */
     loadUser();
+    sb.auth.onAuthStateChange(() => loadUser());
 
-    /* REALTIME */
-    sb.auth.onAuthStateChange(() => {
-        loadUser();
-    });
-
-    /* GIỚI THIỆU MODAL */
     function showIntroductionModal(event) {
         event.preventDefault();
         alert('Giới thiệu hệ thống - Hãy xem trang chủ để biết thêm chi tiết');
     }
-
 </script>
-
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch Sử Quét - Hệ Thống Threat Intelligence</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/history.js') }}"></script>.
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .menu-link
+        {
+            text-decoration: none;
+            color: #f8fafc;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        .menu-link:hover {
+            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+        }
+        .hero-box {
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-top: 30px;
+            border-top: 4px solid #3b82f6;
+        }
+        .history-item {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        .history-item:hover {
+            background: #263449;
+            border-color: #3b82f6;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+        .status-badge {
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .AN_TOAN {
+            background-color: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+            border: 1px solid #22c55e;
+        }
+        .CANH_BAO {
+            background-color: rgba(234, 179, 8, 0.2);
+            color: #fde047;
+            border: 1px solid #eab308;
+        }
+        .DOC_HAI {
+            background-color: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            border: 1px solid #ef4444;
+        }
+        .KHONG_XAC_DINH {
+            background-color: rgba(156, 163, 175, 0.2);
+            color: #9ca3af;
+            border: 1px solid #9ca3af;
+        }
+        .type-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border: 1px solid #3b82f6;
+        }
+        .time-text {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .empty-state i {
+            font-size: 3rem;
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+        .detail-section {
+            background: #0f172a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 3px solid #3b82f6;
+            font-size: 0.9rem;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- MENU GÓC PHẢI -->
+    <div class="d-flex justify-content-end mt-4 mb-4">
+        <div class="d-flex align-items-center gap-4 px-3 py-2 rounded"
+             style="background: rgba(255,255,255,0.05); backdrop-filter: blur(8px);">
+
+            <!-- Quay lại trang chủ -->
+            <a href="/" class="menu-link">
+                <i class="bi bi-house-fill"></i>
+                <span>Trang chủ</span>
+            </a>
+
+            <!-- Tin tức -->
+            <a href="user/news" class="menu-link">
+                <i class="bi bi-newspaper"></i>
+                <span>Tin tức</span>
+            </a>
+            <a href="/history" class="menu-link">
+                <i class="bi bi-flag-fill"></i>
+                <span>Lịch sử</span>
+            </a>
+            <!-- Báo cáo -->
+            <a href="/report" class="menu-link">
+                <i class="bi bi-flag-fill"></i>
+                <span>Báo cáo</span>
+            </a>
+
+            <!-- Giới thiệu -->
+            <a href="#" class="menu-link" onclick="showIntroductionModal(event)">
+                <i class="bi bi-info-circle-fill"></i>
+                <span>Giới thiệu</span>
+            </a>
+
+            <!-- Nút đăng nhập / Lịch sử & User -->
+            <div id="authArea"></div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="hero-box">
+                <div class="d-flex align-items-center justify-content-between mb-30" style="margin-bottom: 30px;">
+                    <h2 class="mb-0"><i class="bi bi-clock-history"></i> Lịch Sử Quét</h2>
+                    <button class="btn btn-sm btn-outline-light" id="refreshBtn" onclick="loadHistory()">
+                        <i class="bi bi-arrow-clockwise"></i> Làm mới
+                    </button>
+                </div>
+
+                <!-- Filter/Sort options -->
+                <div class="mb-4 d-flex gap-2 flex-wrap">
+                    <select id="filterType" class="form-select form-select-sm" style="max-width: 150px; background: #334155; color: #f8fafc; border-color: #475569;">
+                        <option value="">Tất cả loại</option>
+                        <option value="url">URL</option>
+                        <option value="file">File</option>
+                    </select>
+                    <select id="filterStatus" class="form-select form-select-sm" style="max-width: 150px; background: #334155; color: #f8fafc; border-color: #475569;">
+                        <option value="">Tất cả trạng thái</option>
+                        <option value="AN_TOAN">An toàn</option>
+                        <option value="CANH_BAO">Cảnh báo</option>
+                        <option value="DOC_HAI">Độc hại</option>
+                        <option value="KHONG_XAC_DINH">Chưa xác định</option>
+                    </select>
+                </div>
+
+                <!-- History list -->
+                <div id="historyContainer">
+                    <div class="empty-state">
+                        <i class="bi bi-inbox"></i>
+                        <p class="text-secondary">Chưa có lịch sử quét</p>
+                    </div>
+                </div>
+
+                <div id="loadingSpinner" style="display: none; text-align: center; padding: 40px;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Đang tải...</span>
+                    </div>
+                    <p class="text-secondary mt-3">Đang tải lịch sử...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- ... (phần head và header giữ nguyên) ... -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

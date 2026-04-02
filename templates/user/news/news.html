@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Tức & Cảnh Báo</title>
+    <!-- Bootstrap + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/news/news.css') }}">
+</head>
+<body>
+
+<div class="container py-4">
+    <!-- Header menu -->
+    {% include 'components/header_menu.html' %}
+
+    <!-- Hero header -->
+    <div class="header-box animate-fade-in">
+        <h1 class="display-5 fw-bold">📰 Trung tâm Cảnh báo & Tin tức</h1>
+        <p class="lead">Cập nhật những cảnh báo lừa đảo và tin tức mới nhất</p>
+    </div>
+
+    <!-- Grid cards -->
+    <div class="row g-4" id="newsGrid">
+        {% for news in news_list %}
+        <div class="col-md-6 col-lg-4">
+            <div class="news-card h-100 animate-card" data-news-id="{{ news.id }}">
+                {% if news.thumbnail_url %}
+                <div class="news-image">
+                    <img src="{{ news.thumbnail_url }}" alt="{{ news.title }}" loading="lazy">
+                </div>
+                {% endif %}
+                <div class="news-card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <h5 class="news-title">{{ news.title }}</h5>
+                        <span class="badge {% if news.risk_level == 'high' %}bg-danger{% else %}bg-warning text-dark{% endif %}">
+                            {% if news.risk_level == 'high' %}⚠️ Nguy cơ cao{% else %}🔔 Cảnh báo{% endif %}
+                        </span>
+                    </div>
+                    <div class="news-date">
+                        <i class="bi bi-calendar-event"></i> {{ news.created_at[:10] if news.created_at else 'Chưa có ngày' }}
+                    </div>
+                    <div class="news-summary">
+                        {{ news.summary|truncate(120) }}
+                    </div>
+                    <div class="mt-3">
+                        <a href="{{ url_for('user_news.news_detail', news_id=news.id) }}" class="btn btn-sm btn-outline-primary read-more"></a>
+                            Đọc tiếp <i class="bi bi-arrow-right-short"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-12">
+            <div class="alert alert-info text-center">Hiện chưa có bài viết nào.</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Custom JS -->
+<script src="{{ url_for('static', filename='js/news.js') }}"></script>
+</body>
+</html>

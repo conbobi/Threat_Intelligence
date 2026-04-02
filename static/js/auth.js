@@ -6,7 +6,9 @@ const GOOGLE_LOGIN_FLAG = "pending_google_oauth";
 
 document.addEventListener("DOMContentLoaded", async () => {
     const path = window.location.pathname;
-    const isAuthPage = path === "/auth/login" || path === "/auth/register";
+    const isAuthPage =
+        path === "/auth/login" ||
+        path === "/auth/register";
 
     if (!isAuthPage) return;
 
@@ -15,16 +17,59 @@ document.addEventListener("DOMContentLoaded", async () => {
         window.location.hash.includes("access_token") ||
         localStorage.getItem(GOOGLE_LOGIN_FLAG) === "1";
 
-    if (!hasOAuthHint) return;
+    if (hasOAuthHint) {
+        await handleGoogleSession();
+    }
 
-    await handleGoogleSession();
+    bindAuthEvents();
 });
 
-async function loginWithGoogle() {
+function bindAuthEvents() {
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+    const googleLoginBtn = document.getElementById("googleLoginBtn");
+    const googleRegisterBtn = document.getElementById("googleRegisterBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    if (loginForm) {
+        loginForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            await login();
+        });
+    }
+
+    if (registerForm) {
+        registerForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            await register();
+        });
+    }
+
+    if (googleLoginBtn) {
+        googleLoginBtn.addEventListener("click", async () => {
+            await loginWithGoogle("login");
+        });
+    }
+
+    if (googleRegisterBtn) {
+        googleRegisterBtn.addEventListener("click", async () => {
+            await loginWithGoogle("register");
+        });
+    }
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", async () => {
+            await logoutSupabaseSession();
+        });
+    }
+}
+
+async function loginWithGoogle(mode = "login") {
     try {
-        const redirectTo = window.location.pathname === "/auth/register"
-            ? `${window.location.origin}/auth/register`
-            : `${window.location.origin}/auth/login`;
+        const redirectTo =
+            mode === "register"
+                ? `${window.location.origin}/auth/register`
+                : `${window.location.origin}/auth/login`;
 
         localStorage.setItem(GOOGLE_LOGIN_FLAG, "1");
 
@@ -88,14 +133,16 @@ async function handleGoogleSession() {
         if (!existingProfile) {
             const { data: insertedProfile, error: insertError } = await sb
                 .from("profiles")
-                .insert([{
-                    id: user.id,
-                    email: email,
-                    username: defaultUsername,
-                    full_name: fullName,
-                    role: "USER",
-                    status: "ACTIVE"
-                }])
+                .insert([
+                    {
+                        id: user.id,
+                        email: email,
+                        username: defaultUsername,
+                        full_name: fullName,
+                        role: "USER",
+                        status: "ACTIVE"
+                    }
+                ])
                 .select()
                 .single();
 

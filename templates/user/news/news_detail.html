@@ -6,7 +6,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url_for('user.index') }}">Trang chủ</a></li>
-                <li class="breadcrumb-item"><a href="{{ url_for('news.news_list') }}">Tin tức</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('user_news.news_detail', news_id=news.id) }}>Tin tức</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ news.title }}</li>
             </ol>
         </nav>

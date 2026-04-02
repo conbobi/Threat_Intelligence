@@ -1,3 +1,26 @@
+body{
+    background:#0f172a;
+    color:#e2e8f0;
+    font-family:Segoe UI, sans-serif;
+}
+
+
+.menu-link 
+{
+            text-decoration: none;
+            color: #f8fafc;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+.menu-link:hover {
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+}
 body {
     background-color: #0f172a;
     color: #f8fafc;
